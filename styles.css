@@ -83,6 +83,10 @@ nav a:hover {
   color: #2563eb;
 }
 
+.admin-only {
+  display: none !important;
+}
+
 .hero {
   display: grid;
   place-items: center;

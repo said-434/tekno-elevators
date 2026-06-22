@@ -98,11 +98,9 @@ function isAdminMode() {
 
 function toggleAddElevatorLink() {
   const show = isAdminMode();
-  const links = document.querySelectorAll('a[href="elevators.html"], a[href="./elevators.html"], a[href="/tekno-elevators/elevators.html"]');
+  const links = document.querySelectorAll('.admin-only');
   links.forEach((el) => {
-    if (el.textContent.trim() === 'أضف مصعد' || el.textContent.trim() === 'اضافة مصعد') {
-      el.style.display = show ? '' : 'none';
-    }
+    el.style.display = show ? '' : 'none';
   });
 }
 
