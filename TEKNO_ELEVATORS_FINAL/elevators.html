@@ -2,9 +2,8 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="6FogwguKmvvgBhHKodkbByprvnY8ivckM7iSiNs5jKM" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة إدارة المصاعد - TEKNO_ELEVATORS</title>
+  <title>أضف مصعد - TEKNO_ELEVATORS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,22 +15,26 @@
         </picture>
         <div>
           <h1>TEKNO_ELEVATORS</h1>
-          <p>لوحة إدارة المصاعد</p>
+          <p>مصاعد تكنو</p>
         </div>
       </a>
       <nav>
         <a href="index.html">الرئيسية</a>
-        <a href="admin.html">لوحة الإدارة</a>
+        <a href="about.html">نبذة عنا</a>
+        <a href="services.html">خدمات</a>
+        <a href="elevators.html">أضف مصعد</a>
+        <a href="explain.html">شرح المصاعد</a>
+        <a href="contact.html">تواصل معنا</a>
       </nav>
     </div>
   </header>
 
   <main class="section">
     <div class="container">
-      <h2>أضف مصعدًا للعرض العام</h2>
-      <p>هذه الصفحة خاصة بك فقط. أي مصعد تضيفه سيظهر في صفحة المصاعد العامة.</p>
+      <h2>أضف مصعد بنفسك</h2>
+      <p>استخدم النموذج لكتابة تفاصيل المصاعد التي تريد عرضها هنا. سيتم إضافتها على الفور في الصفحة.</p>
 
-      <form id="admin-add-elevator-form">
+      <form id="add-elevator-form">
         <label>اسم المصعد</label>
         <input type="text" name="name" placeholder="مثلاً: مصعد سكني 8 أشخاص" required />
 
@@ -58,9 +61,9 @@
       </form>
 
       <section class="section">
-        <h2>المصاعد الحالية</h2>
-        <div id="admin-elevator-list" class="cards"></div>
-        <p id="admin-no-elevators" class="empty-message">لا توجد مصاعد مضافة بعد.</p>
+        <h2>قائمة المصاعد</h2>
+        <div id="elevator-list" class="cards"></div>
+        <p id="no-elevators" class="empty-message">لا توجد مصاعد مضافة بعد. أضف مصعدًا وسيظهر هنا مباشرة.</p>
       </section>
     </div>
   </main>
