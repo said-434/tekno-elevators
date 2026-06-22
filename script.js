@@ -83,6 +83,31 @@ function getSavedElevators() {
   });
 })();
 
+function isAdminMode() {
+  const url = new URL(window.location.href);
+  if (url.searchParams.get('admin') === 'true') {
+    localStorage.setItem('teknoElevatorAdmin', 'true');
+    return true;
+  }
+  if (url.searchParams.get('admin') === 'off') {
+    localStorage.removeItem('teknoElevatorAdmin');
+    return false;
+  }
+  return localStorage.getItem('teknoElevatorAdmin') === 'true';
+}
+
+function toggleAddElevatorLink() {
+  const show = isAdminMode();
+  const links = document.querySelectorAll('a[href="elevators.html"], a[href="./elevators.html"], a[href="/tekno-elevators/elevators.html"]');
+  links.forEach((el) => {
+    if (el.textContent.trim() === 'أضف مصعد' || el.textContent.trim() === 'اضافة مصعد') {
+      el.style.display = show ? '' : 'none';
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', toggleAddElevatorLink);
+
 function saveElevators(items) {
   localStorage.setItem(elevatorStorageKey, JSON.stringify(items));
 }
