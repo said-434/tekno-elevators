@@ -1,5 +1,5 @@
 const elevatorStorageKey = 'teknoElevatorList';
-const elevatorForm = document.getElementById('add-elevator-form');
+const adminElevatorForm = document.getElementById('admin-add-elevator-form');
 const elevatorList = document.getElementById('elevator-list');
 const noElevatorsMessage = document.getElementById('no-elevators');
 
@@ -137,15 +137,15 @@ function renderElevators(list) {
 const savedElevators = getSavedElevators();
 if (elevatorList) renderElevators(savedElevators);
 
-if (elevatorForm && elevatorList) {
-  elevatorForm.addEventListener('submit', function (event) {
+if (adminElevatorForm && elevatorList) {
+  adminElevatorForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const name = elevatorForm.elements['name'].value.trim();
-    const type = elevatorForm.elements['type'].value;
-    const capacity = elevatorForm.elements['capacity'].value.trim();
-    const image = elevatorForm.elements['image'].value.trim();
-    const description = elevatorForm.elements['description'].value.trim();
+    const name = adminElevatorForm.elements['name'].value.trim();
+    const type = adminElevatorForm.elements['type'].value;
+    const capacity = adminElevatorForm.elements['capacity'].value.trim();
+    const image = adminElevatorForm.elements['image'].value.trim();
+    const description = adminElevatorForm.elements['description'].value.trim();
 
     if (!name || !type || !capacity || !description) {
       alert('من فضلك املأ جميع الحقول الأساسية. حقل الصورة اختياري.');
@@ -156,7 +156,7 @@ if (elevatorForm && elevatorList) {
     const updatedList = [newElevator, ...getSavedElevators()];
     saveElevators(updatedList);
     renderElevators(updatedList);
-    elevatorForm.reset();
+    adminElevatorForm.reset();
     alert('تمت إضافة المصعد بنجاح وسيظهر في القائمة الآن.');
   });
 }
