@@ -1,24 +1,27 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="6FogwguKmvvgBhHKodkbByprvnY8ivckM7iSiNs5jKM" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة إدارة المصاعد - TEKNO_ELEVATORS</title>
+  <title>لوحة إدارة المنتجات - TEKNO_ELEVATORS</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <header class="site-header">
     <div class="container header-flex">
       <a href="index.html" class="brand">
         <picture>
           <img src="images/logo.jpeg" alt="TEKNO_ELEVATORS logo" class="logo" />
         </picture>
+
         <div>
           <h1>TEKNO_ELEVATORS</h1>
-          <p>لوحة إدارة المصاعد</p>
+          <p>لوحة إدارة المنتجات</p>
         </div>
       </a>
+
       <nav>
         <a href="index.html">الرئيسية</a>
         <a href="admin.html">لوحة الإدارة</a>
@@ -28,40 +31,70 @@
 
   <main class="section">
     <div class="container">
-      <h2>أضف مصعدًا للعرض العام</h2>
-      <p>هذه الصفحة خاصة بك فقط. أي مصعد تضيفه سيظهر في صفحة المصاعد العامة.</p>
+
+      <h2>أضف منتجًا للعرض العام</h2>
+
+      <p>
+        هذه الصفحة خاصة بك فقط. أي منتج تضيفه سيظهر في صفحة المنتجات العامة.
+      </p>
 
       <form id="admin-add-elevator-form">
-        <label>اسم المصعد</label>
-        <input type="text" name="name" placeholder="مثلاً: مصعد سكني 8 أشخاص" required />
 
-        <label>نوع المصعد</label>
+        <label>اسم المنتج</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="مثلاً: كابينة بانوراما"
+          required
+        />
+
+        <label>نوع المنتج</label>
         <select name="type" required>
           <option value="">اختر النوع</option>
-          <option value="سكني">سكني</option>
-          <option value="تجاري">تجاري</option>
-          <option value="صناعي">صناعي</option>
-          <option value="هيدروليكي">هيدروليكي</option>
-          <option value="كهربائي">كهربائي</option>
+          <option value="كابينة">كابينة</option>
+          <option value="باب أوتوماتيك">باب أوتوماتيك</option>
+          <option value="باب نصف أوتوماتيك">باب نصف أوتوماتيك</option>
+          <option value="ماكينة">ماكينة</option>
+          <option value="إكسسوارات">إكسسوارات</option>
         </select>
 
-        <label>سعة الوزن</label>
-        <input type="text" name="capacity" placeholder="مثلاً: 630 كجم" required />
+        <label>المواصفات (اختياري)</label>
+        <input
+          type="text"
+          name="capacity"
+          placeholder="مثلاً: ستانلس ذهبي - سقف LED"
+        />
 
-        <label>رابط صورة المصعد</label>
-        <input type="url" name="image" placeholder="مثلاً: https://example.com/elevator.jpg" />
+        <label>رابط صورة المنتج</label>
+        <input
+          type="url"
+          name="image"
+          placeholder="مثلاً: https://example.com/image.jpg"
+        />
 
-        <label>وصف المصعد</label>
-        <textarea name="description" placeholder="أضف ميزات المصعد أو ملاحظات حول الاستخدام" required></textarea>
+        <label>وصف المنتج</label>
+        <textarea
+          name="description"
+          placeholder="اكتب وصف المنتج أو مميزاته"
+          required
+        ></textarea>
 
-        <button type="submit" class="btn">أضف المصعد</button>
+        <button type="submit" class="btn">
+          إضافة المنتج
+        </button>
+
       </form>
 
       <section class="section">
-        <h2>المصاعد الحالية</h2>
+        <h2>المنتجات الحالية</h2>
+
         <div id="admin-elevator-list" class="cards"></div>
-        <p id="admin-no-elevators" class="empty-message">لا توجد مصاعد مضافة بعد.</p>
+
+        <p id="admin-no-elevators" class="empty-message">
+          لا توجد منتجات مضافة بعد.
+        </p>
       </section>
+
     </div>
   </main>
 
@@ -70,6 +103,8 @@
       <p>© 2026 TEKNO_ELEVATORS. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
+
   <script src="script.js"></script>
+
 </body>
 </html>
