@@ -1,110 +1,105 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="6FogwguKmvvgBhHKodkbByprvnY8ivckM7iSiNs5jKM" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة إدارة المنتجات - TEKNO_ELEVATORS</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إدارة المنتجات</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="container header-flex">
-      <a href="index.html" class="brand">
-        <picture>
-          <img src="images/logo.jpeg" alt="TEKNO_ELEVATORS logo" class="logo" />
-        </picture>
+<header class="site-header">
+  <div class="container header-flex">
 
-        <div>
-          <h1>TEKNO_ELEVATORS</h1>
-          <p>لوحة إدارة المنتجات</p>
-        </div>
-      </a>
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpeg" class="logo">
+      <div>
+        <h1>TEKNO_ELEVATORS</h1>
+        <p>لوحة إدارة المنتجات</p>
+      </div>
+    </a>
 
-      <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="admin.html">لوحة الإدارة</a>
-      </nav>
-    </div>
-  </header>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="admin.html">لوحة الإدارة</a>
+    </nav>
 
-  <main class="section">
-    <div class="container">
+  </div>
+</header>
 
-      <h2>أضف منتجًا للعرض العام</h2>
+<main class="section">
 
-      <p>
-        هذه الصفحة خاصة بك فقط. أي منتج تضيفه سيظهر في صفحة المنتجات العامة.
-      </p>
+<div class="container">
 
-      <form id="admin-add-elevator-form">
+<h2>أضف منتجًا جديدًا</h2>
 
-        <label>اسم المنتج</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="مثلاً: كابينة بانوراما"
-          required
-        />
+<form id="admin-add-elevator-form">
 
-        <label>نوع المنتج</label>
-        <select name="type" required>
-          <option value="">اختر النوع</option>
-          <option value="كابينة">كابينة</option>
-          <option value="باب أوتوماتيك">باب أوتوماتيك</option>
-          <option value="باب نصف أوتوماتيك">باب نصف أوتوماتيك</option>
-          <option value="ماكينة">ماكينة</option>
-          <option value="إكسسوارات">إكسسوارات</option>
-        </select>
+<label>اسم المنتج</label>
+<input
+type="text"
+name="name"
+placeholder="مثال: كابينة بانوراما"
+required>
 
-        <label>المواصفات (اختياري)</label>
-        <input
-          type="text"
-          name="capacity"
-          placeholder="مثلاً: ستانلس ذهبي - سقف LED"
-        />
+<label>نوع المنتج</label>
+<select name="type" required>
+<option value="">اختر النوع</option>
+<option value="كابينة">كابينة</option>
+<option value="باب أوتوماتيك">باب أوتوماتيك</option>
+<option value="باب نصف أوتوماتيك">باب نصف أوتوماتيك</option>
+<option value="ماكينة">ماكينة</option>
+<option value="إكسسوارات">إكسسوارات</option>
+</select>
 
-        <label>رابط صورة المنتج</label>
-        <input
-          type="url"
-          name="image"
-          placeholder="مثلاً: https://example.com/image.jpg"
-        />
+<label>المواصفات (اختياري)</label>
+<input
+type="text"
+name="capacity"
+placeholder="مثال: ستانلس ذهبي">
 
-        <label>وصف المنتج</label>
-        <textarea
-          name="description"
-          placeholder="اكتب وصف المنتج أو مميزاته"
-          required
-        ></textarea>
+<label>رابط الصورة</label>
+<input
+type="url"
+name="image"
+placeholder="https://i.ibb.co/xxxxx/image.jpg">
 
-        <button type="submit" class="btn">
-          إضافة المنتج
-        </button>
+<label>وصف المنتج</label>
+<textarea
+name="description"
+placeholder="اكتب وصف المنتج"
+required></textarea>
 
-      </form>
+<button type="submit" class="btn">
+إضافة المنتج
+</button>
 
-      <section class="section">
-        <h2>المنتجات الحالية</h2>
+</form>
 
-        <div id="admin-elevator-list" class="cards"></div>
+<section class="section">
 
-        <p id="admin-no-elevators" class="empty-message">
-          لا توجد منتجات مضافة بعد.
-        </p>
-      </section>
+<h2>المنتجات الحالية</h2>
 
-    </div>
-  </main>
+<div id="elevator-list" class="cards"></div>
 
-  <footer>
-    <div class="container footer-content">
-      <p>© 2026 TEKNO_ELEVATORS. جميع الحقوق محفوظة.</p>
-    </div>
-  </footer>
+<p id="no-elevators" class="empty-message">
+لا توجد منتجات مضافة بعد.
+</p>
 
-  <script src="script.js"></script>
+</section>
+
+</div>
+
+</main>
+
+<footer>
+<div class="container footer-content">
+<p>© 2026 TEKNO_ELEVATORS</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
