@@ -4,30 +4,13 @@ import {
   ref,
   push,
   onValue
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";const elevatorStorageKey = 'teknoElevatorList';
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const adminElevatorForm = document.getElementById('admin-add-elevator-form');
 const elevatorList = document.getElementById('elevator-list');
 const noElevatorsMessage = document.getElementById('no-elevators');
 
-function getSavedElevators() {
-  const saved = localStorage.getItem(elevatorStorageKey);
-
-  if (!saved) return [];
-
-  try {
-    return JSON.parse(saved);
-  } catch {
-    return [];
-  }
-}
-
-function saveElevators(items) {
-  localStorage.setItem(
-    elevatorStorageKey,
-    JSON.stringify(items)
-  );
-}
+const elevatorsRef = ref(db, "elevators");
 
 function createElevatorCard(item) {
 
@@ -56,13 +39,13 @@ function createElevatorCard(item) {
   return card;
 }
 
-function renderElevators(list) {
+function renderElevators(data) {
 
   if (!elevatorList) return;
 
   elevatorList.innerHTML = '';
 
-  if (!list.length) {
+  if (!data) {
 
     if (noElevatorsMessage) {
       noElevatorsMessage.style.display = 'block';
@@ -75,67 +58,49 @@ function renderElevators(list) {
     noElevatorsMessage.style.display = 'none';
   }
 
-  list.forEach(item => {
-    elevatorList.appendChild(
-      createElevatorCard(item)
-    );
-  });
+  Object.values(data)
+    .reverse()
+    .forEach(item => {
+      elevatorList.appendChild(
+        createElevatorCard(item)
+      );
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const savedElevators = getSavedElevators();
-
-  renderElevators(savedElevators);
+  onValue(elevatorsRef, (snapshot) => {
+    renderElevators(snapshot.val());
+  });
 
   if (adminElevatorForm) {
 
-    adminElevatorForm.addEventListener('submit', function (event) {
+    adminElevatorForm.addEventListener('submit', async function (event) {
 
       event.preventDefault();
 
-      const name =
-        adminElevatorForm.elements['name'].value.trim();
+      const newElevator = {
+        name: adminElevatorForm.elements['name'].value.trim(),
+        type: adminElevatorForm.elements['type'].value,
+        capacity: adminElevatorForm.elements['capacity'].value.trim(),
+        image: adminElevatorForm.elements['image'].value.trim(),
+        description: adminElevatorForm.elements['description'].value.trim()
+      };
 
-      const type =
-        adminElevatorForm.elements['type'].value;
-
-      const capacity =
-        adminElevatorForm.elements['capacity'].value.trim();
-
-      const image =
-        adminElevatorForm.elements['image'].value.trim();
-
-      const description =
-        adminElevatorForm.elements['description'].value.trim();
-
-      if (!name || !type || !description) {
-
-        alert('من فضلك أدخل اسم المنتج والنوع والوصف.');
-
+      if (
+        !newElevator.name ||
+        !newElevator.type ||
+        !newElevator.description
+      ) {
+        alert('من فضلك أدخل البيانات المطلوبة');
         return;
       }
 
-      const newElevator = {
-        name,
-        type,
-        capacity,
-        image,
-        description
-      };
-
-      const updatedList = [
-        newElevator,
-        ...getSavedElevators()
-      ];
-
-      saveElevators(updatedList);
-
-      renderElevators(updatedList);
+      await push(elevatorsRef, newElevator);
 
       adminElevatorForm.reset();
 
-      alert('تمت إضافة المنتج بنجاح.');
+      alert('تمت إضافة المنتج بنجاح');
     });
 
   }
