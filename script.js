@@ -1,4 +1,10 @@
-const elevatorStorageKey = 'teknoElevatorList';
+import { db } from "./firebase-config.js";
+
+import {
+  ref,
+  push,
+  onValue
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";const elevatorStorageKey = 'teknoElevatorList';
 
 const adminElevatorForm = document.getElementById('admin-add-elevator-form');
 const elevatorList = document.getElementById('elevator-list');
