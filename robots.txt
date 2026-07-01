@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://said-434.github.io/tekno-elevators/sitemap.xml
